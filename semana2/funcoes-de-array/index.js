@@ -156,4 +156,40 @@ const mensagemCompra = productoYpe.map((elemento) =>{
 console.log(mensagemCompra)
 
 
+
+
 */
+
+const pokemons = [
+  { nome: "Bulbasaur", tipo: "grama" },
+  { nome: "Bellsprout", tipo: "grama" },
+  { nome: "Charmander", tipo: "fogo" },
+  { nome: "Vulpix", tipo: "fogo" },
+  { nome: "Squirtle", tipo: "água" },
+  { nome: "Psyduck", tipo: "água" },
+]
+//item A
+//Se eu quero amostrar o nome e o tipo faco deste jeito.
+// const ordenarPokemons = pokemons.map(pokemon => {
+//                                     pokemon.nome
+//                                     return pokemon})
+//console.log(ordenarPokemons.sort())
+
+const ordenarPokemons = pokemons.map((pokemon)=>{
+  return pokemon.nome
+})
+console.log(ordenarPokemons.sort())
+
+
+const apagarRepetido = pokemons.map((elemento)=>{
+     return elemento.tipo    
+})
+
+const resultado = apagarRepetido.reduce((a,e)=>{
+      if(!a.find(d=>d==e)){
+        a.push(e)
+      }
+      return a
+}, [])
+
+console.log(resultado);

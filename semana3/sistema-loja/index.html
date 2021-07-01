@@ -4,36 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nome da Loja</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Waiting+for+the+Sunrise&display=swap" rel="stylesheet" type="text/css">
+    <title>IMPORTACÕES RN</title>
 </head>
 <body>
-    <div>
-        <h1>Bem-vind@ ao <em>RN IMPORTACÕES</em>!</h1>
-        <p>Você se encontra numa loja de tecnologia!!!</p>
-    </div>
 
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
-    </div>
+<div class="container">
 
+    <!------------------ HEADER ------------------------>
+  <header>  
     <div>
-        <!-- ADICIONAR INFORMAÇOES SOBRE SUA LOJINHA -->
+        <img class="imagemCabeçalho" src="../img/RNIMPSIN_opt.png">
+        <h1>Bem-vind@ a</h1><br>
+        <p><b>Você se encontra numa loja de importações!!!</b></p>
+    </div>
+ </header>  
+    <!------------------END HEADER ------------------------>
+
+
+    <!------------------ NAVBAR ------------------------>
+    <div class="navbar">
+        <ul>
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="ctrl-estoque.html">Controle de Estoque</a></li>
+          <li><a href="add-produto.html">Adicionar Produto</a></li>
+          <li><a href="funcionarios.html">Funcionários</a></li>
+        </ul>
+    </div>
+    <!------------------ END NAVBAR ------------------------>
+    
+    <!--------------------- POST - POST 1 ------------------------>
+    <div class="post" id="post-um">
         <p>Nossa Loja tem como objetivo fazer <strong>importações</strong> de dispositivos 
-        electronicos e <br> 
-        não electronicos para o uso da casa, escritôrio, cozinha e Pets</p> 
+        electronicos e não electronicos para o uso da casa, escritôrio, cozinha e Pets</p> 
     </div>
+    <!----------------END - POST - POST 1 ------------------------>
 
-    <div>
-        <p>Siga-nos nas redes sociais!</p>
+    <!---------------------- FOOTER-------------------------->
 
-        <div>
-            <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
-        </div>
-    </div>
+<footer>
+     <form>
+        <fieldset>
+            <legend>Cadestre-se para obter mais informações sobre 
+                nossos produtos</legend>
+                
+            <div class="footerRedesSociais">     
+                <p>Siga-nos nas redes sociais!</p><br><br>  
+                <a href="https://n9.cl/eiyhn" target="_blank"><img src="https://image.flaticon.com/icons/png/512/25/25305.png" /></a>
+                <a href="https://n9.cl/v9uxz" target="_blank"><img src="https://image.flaticon.com/icons/png/512/25/25425.png" /></a>
+                <img  src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+            </div> 
+            
+            <div class="footerCadastro">
+                <br>                  
+                Nome: <input type="text" name="nome"></input><br>               
+                Email: <input type="email" name="email"></input><br>
+                Aniversario: <input type="date" id="birthday" name="birthday"><br>
+                Aceito as condicções da inscrição <input type="checkbox" name="condicao"><br>
+                <input class="posicaoButtom" type="submit" name="Cadastrar" value="Cadastrar!!">  
+            </div>  
+
+        </fieldset>
+    </form>
+</footer> 
+
+ 
+    <!-------------------END - FOOTER------------------------>
+
+</div>    
+
+
+
 </body>
 </html>

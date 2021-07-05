@@ -1,0 +1,172 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    background-color: #fe7e02;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    height: 20px;
+    width: 500px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 4px solid;
+    outline: 0;
+}
+
+button:focus {
+    color: white;
+}
+
+img {
+    width: 100px;
+}
+
+div>p:first-child {
+    display: inline;
+}
+
+/* div img {
+    background: black;
+} */
+
+.botao-amarelo {
+    background-color: #ffaf43;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.botao-amarelo:hover {
+    background-color: #c44f00;
+}
+
+.container {
+    /* com o height posso
+    agrandar o bloco */
+    height: 200px;
+    text-align: center;  
+    font-family: 'Roboto', sans-serif; 
+}
+
+
+.icone {
+    height: 50px;
+    width: 50px;
+    padding-left: 20px;
+}  
+
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+
+#container-de-descricao {
+    background-color: #2274a5;
+    color: white; 
+    /* posso mexer de lugar */
+    padding: 250px;        
+}
+
+
+#container-de-descricao>ol {
+    padding: 20px 60px;       
+}
+
+
+#container-para-comprar {
+    background-color: #e7eb90;
+}
+
+#container-para-comprar>p {
+    color: #c44f00;
+    padding: 100px 0;
+    font-size: 60px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+div:nth-child(2),
+div:last-child {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+table {
+    width: 60%;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    left: 250px;
+    font-family: 'Roboto', sans-serif;
+}
+
+ td img{
+     width: 60px;
+     height: 60px;
+ }   
+
+td button {
+    background-color: #fadf63;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+td button:hover{
+    background-color: #b9a52e
+}
+
+.container-do-search {
+    margin-top: 20px;
+    height: 100px;
+}
+
+
+#back-button {
+    background-color: white;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 10px;
+    color: black;
+    position: absolute;
+    top: 55%;
+    left: 75%;
+    font-family: 'Roboto', sans-serif;
+}
+
+#back-button:hover {
+    background-color: #635a3d
+}
+

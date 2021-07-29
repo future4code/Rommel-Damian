@@ -16,8 +16,6 @@ class Cadastro extends Component {
         inputEmail: ""
     }
 
-
-
     mudaInputUsuario = (e) => {
         this.setState({inputUsuario: e.target.value})
     }
@@ -41,7 +39,9 @@ class Cadastro extends Component {
             this.setState({inputEmail: ""})
         })
         .catch((err) => {
-            alert(err.response.data)
+            alert(err.response.data.message)
+            this.setState({inputUsuario: ""})
+            this.setState({inputEmail: ""})
         })
     }
 
@@ -49,18 +49,18 @@ class Cadastro extends Component {
         return (
             <div>                
                 <h1>Cadastro</h1>
-                <labe>Nome:</labe>
                 <input
+                    placeholder="Nome"
                     value={this.state.inputUsuario}
                     onChange={this.mudaInputUsuario}
                 />
                 <br/>
-                <label>E-mail:</label>
                 <input
+                     placeholder="Email"
                     value={this.state.inputEmail}
                     onChange={this.mudaInputEmail}
                 />
-                <br/><br/><br/>
+                <br/><br/>
                 <button onClick={this.criarUsuario}>Enviar</button>
 
 

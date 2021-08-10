@@ -33,8 +33,7 @@ class ListaPessoas extends Component {
         this.pegarUsuarios();
     }
 
-    pegarUsuarios = async () => {
-    
+    pegarUsuarios = async () => {    
         // axios
         //  .get(`${url}/users/getAllUsers`, {headers})
         //  .then((res) => {     
@@ -48,11 +47,11 @@ class ListaPessoas extends Component {
         try {
             const res = await axios.get(`${url}/users/getAllUsers`, {headers})
             this.setState({ users : res.data.result}) 
+            console.log("Valor do RES",res)
         
         } catch (err) {
             alert ("Ocorreu um problema, tente novamente")
-        }
-    
+        }    
     
     }
 
@@ -68,22 +67,19 @@ class ListaPessoas extends Component {
                     alert("Usuario eliminado com succeso")                    
               }else {
                     alert("Usuario não eliminado")   
-              }  
-                                           
+              }                                            
             })
             .catch((err) =>{
                 console.log("entrou no catch")
                 alert(err.response.data)
             })
-
-
     }
 
     render() {
          
-        console.log(this.state.users) 
+        // console.log(this.state.users) 
         const componentsUsers = this.state.users.map((user) => {
-            return <CardUsuario key={user.id}>  {user.name} {" "}
+            return <CardUsuario key={user.id}>  {user.name}
                    <button onClick={() => this.eliminarUsuario(user.id)}>Eliminar</button></CardUsuario>         
                   
             })

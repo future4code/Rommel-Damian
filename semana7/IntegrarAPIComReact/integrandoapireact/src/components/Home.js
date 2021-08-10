@@ -29,17 +29,18 @@ class componentName extends Component {
 
     render() {
         return (
+         
             <div>
-             <h1>Home</h1>             
-             <span>
-                <button onClick= {this.IrListaPessoas}>Ir para Lista de Pessoas</button>
-             </span>
-                <br/>
-             <span>
-                <button onClick= {this.IrCadastro}>Cadastrar Pessoa</button>
-             </span>
-             <hr/>
-             {this.renderizaPagina()}
+                <h1>Home</h1>             
+                <span>
+                    <button onClick= {this.IrListaPessoas}>Ir para Lista de Pessoas</button>
+                </span>
+                    <br/>
+                <span>
+                    <button onClick= {this.IrCadastro}>Cadastrar Pessoa</button>
+                </span>
+                <hr/>
+                {this.renderizaPagina()}
             </div>
             
         );

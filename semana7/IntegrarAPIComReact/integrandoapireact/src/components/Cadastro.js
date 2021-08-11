@@ -30,9 +30,10 @@ class Cadastro extends Component {
             email: this.state.inputEmail
         }
 
-        axios.post(`${url}/users/createUser`,body, 
-        {headers, method:"POST"})
-
+        axios.post(            
+            `${url}/users/createUser`,body, 
+            {headers, method:"POST"}        
+        )     
         .then((res) => {
             alert("Usuario criado com succeso")
             this.setState({inputUsuario: ""})
@@ -57,8 +58,8 @@ class Cadastro extends Component {
                 <br/>
                 <input
                      placeholder="Email"
-                    value={this.state.inputEmail}
-                    onChange={this.mudaInputEmail}
+                     value={this.state.inputEmail}
+                     onChange={this.mudaInputEmail}
                 />
                 <br/><br/>
                 <button onClick={this.criarUsuario}>Enviar</button>

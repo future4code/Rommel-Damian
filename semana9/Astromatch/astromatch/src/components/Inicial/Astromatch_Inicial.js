@@ -1,23 +1,37 @@
 import React , { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import axios from 'axios'
-import { Box, BoxInicial, Figure, IMG, Footer, Header, Button } from './Astromatch_inicialstyled'
+import { Box, BoxInicial, Figure, IMG, Spinner, Header, Button } from './Astromatch_inicialstyled'
+import TinderCard from 'react-tinder-card'
+import Astromatch_Buttons from './Astromatch_Buttons'
 
 const Astromatch_Inicial = (props) => {
 
-    const [pessoa , setPessoa] = useState({})
+    const [pessoa , setPessoa] = useState(undefined)
     const aluno = 'rommel-rios-Lovelace'
 
+   // TINDER CART =================================
+
+    const onSwipe = (direction) => {
+        console.log('You swiped: ' + direction)
+    }
+    
+    const onCardLeftScreen = (myIdentifier) => {
+        console.log(myIdentifier + ' left the screen')
+    }
+
+   // =============================================
+
     useEffect(() => {
-        axios
-        .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/person`)
-        .then(response => {
-            // console.log(response.data.profile)
-            setPessoa(response.data.profile)
-        })
-        .catch(err => {
-            console.log(err)
-        })        
+        // axios
+        // .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/person`)
+        // .then(response => {
+        //     console.log(response.data.profile)
+        //     setPessoa(response.data.profile)
+        // })
+        // .catch(err => {
+        //     console.log(err)
+        // })      
+        getProfileToChoose()  
     }, [])
 
 
@@ -25,7 +39,7 @@ const Astromatch_Inicial = (props) => {
        try {
              const res = await axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/person`)
              setPessoa(res.data.profile)
-            //console.log(res.data.profile)
+             console.log(res.data.profile)
 
        } catch (err) {
             //console.log(err)
@@ -34,42 +48,31 @@ const Astromatch_Inicial = (props) => {
    } 
 
 
-   const choosePerson = async (objectId) => {
+   const choosePerson = (choice) => {
         const body = {
-            id: objectId,
-            choice: true
+            id: pessoa.id,
+            choice: choice
         }
-
-        try {            
-            const res =
-               await axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/choose-person`, body)
-            //console.log("Res",res)
-
-        } catch (err) {
-            alert("Ocorreu um problema")
-            // console.log(err)            
-        }
+        setPessoa(undefined)            
+            axios
+                .post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/choose-person`, body)
+                .then((res)=>{
+                    console.log("Res",res)
+                    getProfileToChoose()
+                })
     }
 
-    const choosePersonReject = async (objectId) => {
-        const body = {
-            id: objectId,
-            choice: false
-        }
+    const onClickNo = () => {
+        choosePerson(false);
+      };
+    
+    const onClickYes = () => {
+        choosePerson(true);
+      };
 
-        try {            
-            const res =
-               await axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${aluno}/choose-person`, body)
-            //    console.log("Res",res)
-
-        } catch (err) {
-            alert("Ocorreu um problema")
-            // console.log(err)            
-        }
-    }
-
+    
     return (
-        <div>
+        <div>           
            <BoxInicial>
                 <Box>
                     <Header>
@@ -77,27 +80,27 @@ const Astromatch_Inicial = (props) => {
                         <Button className="fas fa-user-check fa-3x" onClick={() => props.mudarPagina("Matches")}></Button> 
                     </Header> 
                     <hr />
-                    <br />
-                    <div>
-                        <Figure>
-                            <IMG src={pessoa.photo} alt={pessoa.name}/>
-                        </Figure>
-                        <br />                        
-                        <h3><strong>{pessoa.name}</strong>, {pessoa.age} </h3>
-                        <p>{pessoa.bio}</p>                   
-                    </div>
-                    <Footer>
-                       <Button className="far fa-times-circle fa-5x" alt="Rejeita" onClick={() => {
-                                                                                        choosePersonReject(pessoa.id)
-                                                                                        getProfileToChoose()}}></Button>
-                       
-                       <Button className="fab fa-gratipay fa-5x" alt="Aceita" onClick={() =>{ 
-                                                                                        choosePerson(pessoa.id)
-                                                                                        getProfileToChoose()}}></Button>
-                    </Footer>            
+                    <br />    
+                    {pessoa ? (
+                    <>
+                    <TinderCard className="swipe" preventSwipe={['up', 'down']} key={pessoa.id}>
+                            <Figure>
+                                <IMG src={pessoa.photo} alt={pessoa.name} />
+                            </Figure>
+                            <br />
+                            <h3><strong>{pessoa.name}</strong>, {pessoa.age} </h3>
+                            <p>{pessoa.bio}</p>
+                    </TinderCard>
+                    <Astromatch_Buttons onClickNo={onClickNo} onClickYes={onClickYes} />
+                    </> ) : (
+                    <Spinner></Spinner>
+                    )}
+
+                    
+
+                    
                 </Box>
             </BoxInicial> 
-            
         </div>
     )
 }

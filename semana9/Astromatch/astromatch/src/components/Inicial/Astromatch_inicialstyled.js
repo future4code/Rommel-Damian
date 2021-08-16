@@ -17,7 +17,7 @@ export const Box = styled.section`
     padding: 2em;
     display: flex;
     flex-direction: column; 
-    box-shadow : 0 0 40px -5px rgb(0,0,0, .5);
+    box-shadow : 0 0 20px -5px rgb(0,0,0, .5);
 `
 
 export const Header = styled.div`
@@ -29,7 +29,8 @@ export const Header = styled.div`
 `
 
 export const Figure = styled.figure`
-    height: 70%
+    height: 70%;
+    
 `
 
 export const IMG = styled.img`
@@ -38,6 +39,7 @@ export const IMG = styled.img`
     display: block;
     margin: 0 auto;
     object-fit: cover;
+    box-shadow : 0 0 40px -5px rgb(0,0,0, .5);
 `
 
 export const Footer = styled.div`
@@ -50,6 +52,30 @@ export const Footer = styled.div`
 export const Button = styled.i`
     cursor: pointer;
     
+`
+
+export const Spinner = styled.div`   
+    border: 4px solid rgba(0,0,0, .1);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-left-color: #09f;
+    margin-top: 5em;
+    margin-left: 7em;
+    
+    
+
+    animation: spin 1s ease infinite;
+    
+    @keyframes spin {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg)
+        }
+    }
+
 `
 
 

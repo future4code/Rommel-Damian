@@ -13,7 +13,7 @@ const ApplicationFormPage = () => {
         history.push("/trips/list")
     }
     //=============Chama ao custom hook para obter dados do api de paises===========
-    const [country] = useRequestData("http://restcountries.eu/rest/v2/all")
+    const [country] = useRequestData("https://restcountries.eu/rest/v2/all")
     //==============================================================================
     //===Crio variaveis de estado pra armazenar neles a info dos paises=============
     const [countrySelect , setCountrySelect] = useState("")
@@ -23,8 +23,7 @@ const ApplicationFormPage = () => {
     const [nome, setNome] = useState("")
     const [idade, setIdade] = useState(0)
     const [texto, setTexto] = useState("")
-    const [profissao, setProfissao] = useState("")
-    let idTrip = ""    
+    const [profissao, setProfissao] = useState("")   
     //==============================================================================
     //==crio metodo para fazer un select controlado e saber o que estou escolhendo==
     const changeCountry = (event) => {
@@ -32,7 +31,7 @@ const ApplicationFormPage = () => {
         setCountrySelect(event.target.value)       
     }
     const changeIdTitulo = (event) => {
-        console.log(IdtituloEscolhido)
+        // console.log(IdtituloEscolhido)
         setIdTituloEscolhido(event.target.value)
     }     
     const changeNome = (event) => {
@@ -69,8 +68,7 @@ const ApplicationFormPage = () => {
 
     const createApplication = () => {
         const aluno = "rommel-rios-lovelace"
-
-        // console.log(idTripEscolhido)
+        
         const body = {
             name: nome,
             age: idade,
@@ -81,11 +79,21 @@ const ApplicationFormPage = () => {
 
         axios
             .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/trips/${IdtituloEscolhido}/apply`, body)
-            .then(res => {
+            .then((res) => {
                 alert("Candidato cadastrado com succeso")
+                setNome("")
+                setIdade("")
+                setTexto("")
+                setProfissao("")
+                setCountrySelect("")
             })
-            .catch(err => {
+            .catch((err) => {
                 alert("Ocorreu algum problema")
+                setNome("")
+                setIdade("")
+                setTexto("")
+                setProfissao("")
+                setCountrySelect("")
             })
     }
    
@@ -131,7 +139,7 @@ const ApplicationFormPage = () => {
                         <div className="form mb-3">
                             <Form.Select  aria-label="Default select example"
                                 placeholder="Escolha uma País"
-                                onChange={changeIdTitulo}>
+                                onChange={changeCountry}>
                                 <option defaultValue>Escolha uma País</option>     
                                 {country && country.map(item => {
                                     return (                                    

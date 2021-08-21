@@ -139,10 +139,10 @@ const TripDetailsPage = () => {
     }
 
     return (
-        <Container className="position-absolute top-50 start-50 translate-middle" 
-                   style={{ width: '35rem' }}>
+        <Container className="d-flex justify-content-center" 
+                    style={{ width: '35rem' }}>
            <Form>
-                <div className="row justify-content-center mt-2">
+                <div className="row justify-content-center mt-2 sticky-md-top">
                     <div className="d-flex justify-content-center p-2">
                         <h1 className="text-warning bg-dark">{trip.name}</h1>
                     </div>

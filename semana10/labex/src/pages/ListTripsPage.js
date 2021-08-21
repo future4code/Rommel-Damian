@@ -2,7 +2,7 @@ import React, {useState , useEffect} from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import axios from 'axios'
-import { Container } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 
 const ListMatch = styled.div`
     display: flex;   
@@ -74,33 +74,32 @@ const ListTripsPage = () => {
 
 
     return (
-        <Container className="container position-absolute top-50 start-50 translate-middle"
-                  style={{ width: '40rem' }}>
-         
-            <div className="d-flex justify-content-center p-2">
-                <button type="button" 
-                        className="btn btn-dark me-2"
-                        onClick={goToHomePage}>Voltar</button>           
-                <button type="button" 
-                        className="btn btn-dark ms-2"
-                        onClick={goToApplicationPage} >Inscrever-se</button>         
-            </div>
-            <div className="d-flex justify-content-center p-2">
-                <h1>Lista de Viagens</h1>    
-            </div>
-            <hr />   
-            <div>
-            {trip ? (trip.map(item=> (
-                        <ListMatch key={item.id}>
-                            <p><strong>Nome: </strong> {item.name}</p>
-                            <p><strong>Descrição: </strong> {item.description}</p> 
-                            <p><strong>Planeta: </strong> {item.planet}</p> 
-                            <p><strong>Duração: </strong> {item.durationInDays}</p> 
-                            <p><strong>Data: </strong> {item.date}</p>                                                                    
-                        </ListMatch>                        
-             ))) : (<Spinner></Spinner>) }
-            </div>
-
+        <Container className="d-flex justify-content-center">
+            <Form>
+                <div className="d-flex justify-content-center p-2">
+                    <button type="button" 
+                            className="btn btn-dark me-2"
+                            onClick={goToHomePage}>Voltar</button>           
+                    <button type="button" 
+                            className="btn btn-dark ms-2"
+                            onClick={goToApplicationPage} >Inscrever-se</button>         
+                </div>
+                <div className="d-flex justify-content-center p-2">
+                    <h1>Lista de Viagens</h1>    
+                </div>
+                <hr />   
+                <div>
+                {trip ? (trip.map(item=> (
+                            <ListMatch key={item.id}>
+                                <p><strong>Nome: </strong> {item.name}</p>
+                                <p><strong>Descrição: </strong> {item.description}</p> 
+                                <p><strong>Planeta: </strong> {item.planet}</p> 
+                                <p><strong>Duração: </strong> {item.durationInDays}</p> 
+                                <p><strong>Data: </strong> {item.date}</p>                                                                    
+                            </ListMatch>                        
+                ))) : (<Spinner></Spinner>) }
+                </div>
+            </Form>             
 
         </Container>
     )

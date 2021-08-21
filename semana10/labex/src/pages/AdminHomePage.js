@@ -112,8 +112,8 @@ const AdminHomePage = () => {
 
     
     return (
-        <Container className="position-absolute top-50 start-50 translate-middle" 
-                   style={{ width: '40rem' }}>
+        <Container className="d-flex justify-content-center" 
+                   style={{ width: '50rem' }}>
             <Form>
                 <div className="d-flex justify-content-center p-2">
                     <h1>Painel Administrativo</h1>

@@ -74,7 +74,7 @@ const CreateTripPage = () => {
 
     return (
         <Container className="position-absolute top-50 start-50 translate-middle"
-                   style={{ width: '40rem' }}>
+                   style={{ width: '30rem' }}>
             <div className="row justify-content-center mt-4">
                 <Form>
                     <div className="d-flex justify-content-center p-2">

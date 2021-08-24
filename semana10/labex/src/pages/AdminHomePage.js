@@ -46,13 +46,7 @@ const AdminHomePage = () => {
     //========================================
     
     useProtectedPage()
-    // useEffect(() => {
-    //     const token = localStorage.getItem('token')
-    //     if(token === null){
-    //        console.log("não esta logado!!!") 
-    //        history.push('/Login')
-    //     }
-    // }, []); 
+
 
 
     useEffect(() => {
